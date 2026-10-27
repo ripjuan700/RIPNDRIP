@@ -1,0 +1,159 @@
+/* ===== 1. VARIABLES DE MARCA =====
+   Definir los colores y tipografías como variables (--algo) permite
+   cambiar toda la paleta desde un solo lugar más adelante. */
+:root{
+  --negro:   #0a0a0a;   /* fondo principal */
+  --carta:   #131311;   /* fondo de tarjetas, un poco más claro */
+  --linea:   #26261f;   /* bordes sutiles */
+  --blanco:  #f2f1ea;   /* texto principal (blanco roto, no puro) */
+  --gris:    #8d8c84;   /* texto secundario */
+  --acido:   #c3ff2e;   /* el verde de la marca */
+}
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+
+body{
+  background:var(--negro);
+  color:var(--blanco);
+  font-family:'Inter', sans-serif;
+}
+
+/* Los títulos usan una fuente "display" gruesa y condensada,
+   típica de streetwear. Los datos (SKU, precios) usan monoespaciada
+   para que se vean como una etiqueta de código de barras. */
+h1, h2, h3, h4, .logo{
+  font-family:'Archivo Black', sans-serif;
+}
+.sku, .precio, .etiqueta{
+  font-family:'Space Mono', monospace;
+}
+
+/* ===== 2. HEADER ===== */
+header{
+  position:sticky; top:0; z-index:50;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:18px 24px;
+  background:rgba(10,10,10,0.9);
+  border-bottom:1px solid var(--linea);
+}
+header .logo{
+  font-size:16px; letter-spacing:0.15em;
+}
+header nav{ display:flex; gap:28px; }
+header nav a{
+  color:var(--gris); text-decoration:none; font-size:14px;
+}
+header nav a:hover{ color:var(--blanco); }
+.carrito{
+  background:none; border:1px solid var(--linea); color:var(--blanco);
+  font-family:'Space Mono', monospace; font-size:13px;
+  padding:8px 14px; cursor:pointer;
+}
+.carrito:hover{ border-color:var(--acido); color:var(--acido); }
+
+/* ===== 3. HERO / CARRUSEL =====
+   Las 3 tarjetas <article class="slide"> quedan una encima de otra
+   con position:absolute; solo la que tiene ".activa" se ve.
+   Como esta página no usa JavaScript, el carrusel es estático:
+   siempre se muestra la slide marcada ".activa" en el HTML.
+   Si más adelante quieres que cambie sola o con clic, hace falta JS. */
+.hero{ position:relative; border-bottom:1px solid var(--linea); }
+.slides{
+  position:relative;
+  height:min(78vh, 640px);
+  overflow:hidden;
+  background:radial-gradient(circle at 30% 40%, #c3ff2e22, transparent 60%), #111008;
+}
+.slide{
+  position:absolute; inset:0;
+  display:flex; flex-direction:column; justify-content:flex-end;
+  gap:12px;
+  padding:0 24px 48px;
+  max-width:520px;
+  opacity:0;
+  transition:opacity .5s ease;
+}
+.slide.activa{ opacity:1; }
+.slide .etiqueta{ color:var(--acido); font-size:12px; letter-spacing:0.15em; }
+.slide h1{ font-size:clamp(34px, 6vw, 72px); line-height:0.95; }
+.slide p{ color:var(--gris); font-size:14px; max-width:320px; }
+
+.flecha{
+  position:absolute; top:50%; transform:translateY(-50%);
+  width:46px; height:46px; border-radius:50%;
+  border:1px solid rgba(242,241,234,0.25);
+  background:rgba(10,10,10,0.4); color:var(--blanco);
+  font-size:18px; cursor:pointer;
+}
+.flecha:hover{ border-color:var(--acido); color:var(--acido); }
+.flecha.izquierda{ left:20px; }
+.flecha.derecha{ right:20px; }
+
+.puntos{ position:absolute; bottom:22px; right:24px; display:flex; gap:8px; }
+.punto{ width:22px; height:3px; border:none; background:rgba(242,241,234,0.25); cursor:pointer; }
+.punto.activo{ background:var(--acido); }
+
+/* ===== 4. GRID DE PRODUCTOS ===== */
+.productos{ max-width:1180px; margin:0 auto; padding:80px 24px; }
+.productos h2{ font-size:clamp(26px,4vw,40px); margin-bottom:36px; }
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:1px;
+  background:var(--linea);
+  border:1px solid var(--linea);
+}
+@media (max-width:860px){ .grid{ grid-template-columns:1fr; } }
+
+.producto{
+  background:var(--negro);
+  padding:0 0 20px;
+}
+.producto-imagen{
+  aspect-ratio:3/4;
+  background:radial-gradient(circle at 60% 30%, #c3ff2e1f, transparent 60%), var(--carta);
+  margin-bottom:16px;
+}
+.producto h3{ font-family:'Inter'; font-weight:600; font-size:15px; padding:0 20px 4px; }
+.producto .sku{ display:block; color:var(--gris); font-size:11px; padding:0 20px 10px; }
+.producto .precio{ display:block; color:var(--acido); font-size:15px; padding:0 20px; }
+
+/* ===== 5. MANIFIESTO ===== */
+.manifiesto{
+  max-width:820px; margin:0 auto; padding:90px 24px;
+  border-top:1px solid var(--linea);
+}
+.manifiesto h2{ font-size:clamp(28px,5vw,48px); margin-bottom:20px; }
+.manifiesto p{ color:var(--gris); font-size:15px; line-height:1.7; }
+
+/* ===== 6. NEWSLETTER ===== */
+.newsletter{
+  max-width:1180px; margin:0 auto; padding:60px 24px;
+  border-top:1px solid var(--linea);
+  display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap;
+}
+.newsletter h4{ font-family:'Inter'; font-size:18px; margin-bottom:4px; }
+.newsletter p{ color:var(--gris); font-size:13px; }
+.newsletter form{ display:flex; border:1px solid var(--linea); }
+.newsletter input{
+  background:none; border:none; color:var(--blanco);
+  padding:12px 16px; width:220px; font-family:'Inter';
+}
+.newsletter input:focus{ outline:none; }
+.newsletter button{
+  background:var(--acido); color:var(--negro); border:none;
+  font-weight:600; padding:12px 20px; cursor:pointer;
+}
+
+/* ===== 7. FOOTER ===== */
+footer{
+  display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap;
+  max-width:1180px; margin:0 auto; padding:40px 24px;
+  border-top:1px solid var(--linea);
+}
+footer .logo{ font-size:14px; }
+.footer-links{ display:flex; gap:22px; }
+.footer-links a{ color:var(--gris); text-decoration:none; font-size:13px; }
+.footer-links a:hover{ color:var(--blanco); }
+.copyright{ color:var(--gris); font-size:12px; font-family:'Space Mono', monospace; }

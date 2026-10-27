@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RIPNDRIP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <!-- Todo el diseño vive ahora en styles.css. Este documento no tiene
+       <style> ni <script>: el carrusel es estático (se ve siempre la
+       slide con clase "activa" en el HTML). -->
+</head>
+<body>
+
+  <!-- ============ 1. HEADER: logo + navegación + carrito ============ -->
+  <header>
+    <div class="logo">RIPNDRIP</div>
+
+    <nav>
+      <a href="#shop">SHOP</a>
+      <a href="#drops">DROPS</a>
+      <a href="#manifiesto">ABOUT</a>
+    </nav>
+
+    <button class="carrito">BAG (0)</button>
+  </header>
+
+  <!-- ============ 2. HERO: carrusel con 3 slides ============ -->
+  <section class="hero">
+    <div class="slides">
+
+      <article class="slide activa">
+        <span class="etiqueta">DROP 04 — GHOST DENIM</span>
+        <h1>RIP THE NORM.</h1>
+        <p>Jeans oversize con refuerzos reflectivos. Producción limitada, 40 unidades.</p>
+      </article>
+
+      <article class="slide">
+        <span class="etiqueta">CAPSULE — BLACKOUT</span>
+        <h1>WEAR THE STATIC.</h1>
+        <p>Camisetas de peso pesado, corte relajado, estampado en alto relieve.</p>
+      </article>
+
+      <article class="slide">
+        <span class="etiqueta">RESTOCK — TOXIC GREEN</span>
+        <h1>DRIP OR DROWN.</h1>
+        <p>El pantalón que abrió la marca vuelve en stock esta semana.</p>
+      </article>
+
+    </div>
+
+    <button class="flecha izquierda" aria-label="Anterior">&larr;</button>
+    <button class="flecha derecha" aria-label="Siguiente">&rarr;</button>
+
+    <div class="puntos">
+      <button class="punto activo"></button>
+      <button class="punto"></button>
+      <button class="punto"></button>
+    </div>
+  </section>
+
+  <!-- ============ 3. GRID DE PRODUCTOS ============ -->
+  <section class="productos" id="shop">
+    <h2>EN TIENDA</h2>
+
+    <div class="grid">
+
+      <article class="producto">
+        <div class="producto-imagen"><!-- foto o svg del producto --></div>
+        <h3>Ghost Denim Oversize</h3>
+        <span class="sku">RND-001 · GRY</span>
+        <span class="precio">$189.000</span>
+      </article>
+
+      <article class="producto">
+        <div class="producto-imagen"></div>
+        <h3>Blackout Tee</h3>
+        <span class="sku">RND-002 · BLK</span>
+        <span class="precio">$79.000</span>
+      </article>
+
+      <article class="producto">
+        <div class="producto-imagen"></div>
+        <h3>Toxic Green Cargo</h3>
+        <span class="sku">RND-003 · GRN</span>
+        <span class="precio">$199.000</span>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============ 4. MANIFIESTO DE MARCA ============ -->
+  <section class="manifiesto" id="manifiesto">
+    <h2>NO ES ROPA. ES CÓDIGO.</h2>
+    <p>RIPNDRIP nace en la calle, no en la vitrina. Cada pieza lleva su propio código de barras porque cada prenda es una edición, no una copia. Producción corta, sin reposición garantizada: si te gusta, no lo pienses.</p>
+  </section>
+
+  <!-- ============ 5. NEWSLETTER ============ -->
+  <section class="newsletter">
+    <h4>ENTÉRATE ANTES QUE SE ACABE</h4>
+    <p>Avisos de restock y drops nuevos. Sin spam.</p>
+    <form>
+      <input type="email" placeholder="tu@email.com" required>
+      <button type="submit">UNIRME</button>
+    </form>
+  </section>
+
+  <!-- ============ 6. FOOTER ============ -->
+  <footer>
+    <div class="logo">RIPNDRIP</div>
+    <div class="footer-links">
+      <a href="#shop">Shop</a>
+      <a href="#manifiesto">About</a>
+      <a href="#">Instagram</a>
+      <a href="#">Contacto</a>
+    </div>
+    <span class="copyright">© 2026 RIPNDRIP</span>
+  </footer>
+
+</body>
+</html>
